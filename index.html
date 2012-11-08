@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<pre>
+# define a function perform the logging action showing the topic and data rcvd
+logData = (topics,data) ->
+  console.log 'from subscribed'
+  console.log topics + ': ' + data
+
+# create a subscriber to a topic and pass the response to the logging method
+subscribeTopic = pubsub.subscribe 'user', logData
+
+# publish an object to the topic
+pubsub.publish 'user', {foo:'bar'}
+
+# define a function to have it evaluated after\
+setTimeout ->
+  pubsub.unsubscribe initSubscriber
+  , 0
+
+</pre>
+<script type="text/html" id="item_tmpl">
+  <div id="<%=id%>" class="<%=(i % 2 == 1 ? " even" : "")%>">
+    <div class="grid_1 alpha right">
+      <img class="righted" src="<%=profile_image_url%>"/>
+    </div>
+    <div class="grid_6 omega contents">
+      <p><b><a href="/<%=from_user%>"><%=from_user%></a>:</b> <%=text%></p>
+    </div>
+  </div>
+</script>
+  <script type="text/javascript" src=/scripts/pubsubmod.js></script>
+</body>
+</html>
