@@ -12,6 +12,7 @@ for event-driven architectures.
 ## waiting to
 * check off items
 * clear completed
+* implement local storage
 
 
 # Motivations
