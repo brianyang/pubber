@@ -17,7 +17,6 @@ clearInput = ->
 
 todoRemove = ->
   $('#todo-list').on 'click','.destroy', (e) ->
-    console.log $(e.target).parent().parent()
     $(e.target).parent().parent().remove()
 todoRemove()
 
